@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <seleccionados>
+        <titulo> Canal XML de {{ usuario }}</titulo>
+        {% for seleccionado in seleccionados %}
+            <aparcamiento>
+                <idEntidad>{{ seleccionado.aparcamiento.idEntidad }}</idEntidad>
+                <nombre>{{ seleccionado.aparcamiento.nombre }}</nombre>
+                <descripcion>{{ seleccionado.aparcamiento.descripcion }}</descripcion>
+                <accesibilidad>{{ seleccionado.aparcamiento.accesibilidad }}</accesibilidad>
+                <contentUrl>{{ seleccionado.aparcamiento.contentUrl }}</contentUrl>
+                <nombreVia>{{ seleccionado.aparcamiento.nombreVia }}</nombreVia>
+                <claseVial>{{ seleccionado.aparcamiento.claseVial }}</claseVial>
+                <tipoNum>{{ seleccionado.aparcamiento.tipoNum }}</tipoNum>
+                <num>{{ seleccionado.aparcamiento.num }}</num>
+                <orientacion>{{ seleccionado.aparcamiento.orientacion }}</orientacion>
+                <localidad>{{ seleccionado.aparcamiento.localidad }}</localidad>
+                <provincia>{{ seleccionado.aparcamiento.provincia }}</provincia>
+                <codigoPostal>{{ seleccionado.aparcamiento.codigoPostal }}</codigoPostal>
+                <barrio>{{ seleccionado.aparcamiento.barrio }}</barrio>
+                <distrito>{{ seleccionado.aparcamiento.distrito }}</distrito>
+                <coordenadaX>{{ seleccionado.aparcamiento.coordenadaX }}</coordenadaX>
+                <coordenadaY>{{ seleccionado.aparcamiento.coordenadaY }}</coordenadaY>
+                <latitud>{{ seleccionado.aparcamiento.latitud }}</latitud>
+                <longitud>{{ seleccionado.aparcamiento.longitud }}</longitud>
+                <telefono>{{ seleccionado.aparcamiento.telefono }}</telefono>
+                <email>{{ seleccionado.aparcamiento.email }}</email>
+            </aparcamiento>
+        {% endfor %}
+    </seleccionados>

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="mainLarge">
+    <h2>Características del aparcamiento:</h2>
+    <p><b>ID-ENTIDAD:</b> {{ aparcamiento.idEntidad}}<br>
+    <b>NOMBRE:</b> {{ aparcamiento.nombre }}<br>
+    <b>DESCRIPCIÓN:</b> {{aparcamiento.descripcion }}<br>
+    {% if aparcamiento.accesibilidad == 1 %}
+        <b>ACCESIBLE:</b> Sí<br>
+    {% else %}
+        <b>ACCESIBLE:</b> No<br>
+    {% endif %}
+    <b>URL:</b> <a href="{{ aparcamiento.contentUrl }}">{{ aparcamiento.contentUrl }}
+    </a><br>
+    <b>DIRECCIÓN:</b> {{ aparcamiento.claseVial }} {{ aparcamiento.nombreVia }},
+    {{ aparcamiento.num}} {{ aparcamiento.orientacion}}
+    {{ aparcamiento.codigoPostal }} {{ aparcamiento.localidad}}<br>
+    {% if aparcamiento.orientacion == "" %}
+        <b>ORIENTACIÓN:</b> No disponible<br>
+    {% else %}
+        <b>ORIENTACION:</b> {{aparcamiento.orientacion }}<br>
+    {% endif %}
+    <b>BARRIO:</b> {{ aparcamiento.barrio }}<br>
+    {% if aparcamiento.distrito == "" %}
+        <b>DISTRITO:</b> No disponible<br>
+    {% else %}
+        <b>DISTRITO:</b> {{ aparcamiento.distrito }}<br>
+    {% endif %}
+    <b>COORDENADA X:</b> {{ aparcamiento.coordenadaX }}<br>
+    <b>COORDENADA Y:</b> {{ aparcamiento.coordenadaY }}<br>
+    {% if aparcamiento.latitud == "" %}
+        <b>LATITUD:</b> No disponible<br>
+    {% else %}
+        <b>LATITUD:</b> {{ aparcamiento.latitud }}<br>
+    {% endif %}
+    {% if aparcamiento.longitud == "" %}
+        <b>LONGITUD:</b> No disponible<br>
+    {% else %}
+        <b>LONGITUD:</b> {{ aparcamiento.longitud }}<br>
+    {% endif %}
+    {% if aparcamiento.telefono == "S/T" or aparcamiento.telefono == "T/D" %}
+        <b>TELÉFONO:</b> No disponible<br>
+    {% else %}
+        <b>TELÉFONO:</b> {{aparcamiento.telefono }}<br>
+    {% endif %}
+    {% if aparcamiento.email == "" %}
+        <b>EMAIL:</b> No disponible<br><br>
+    {% else %}
+        <b>EMAIL:</b> {{aparcamiento.email }}<br><br>
+    {% endif %}
+    <b>COMENTARIOS:</b><br>
+        {% for comentario in comentarios %}
+            - {{ comentario.texto}}<br>
+        {% endfor %}
+    <hr />
+
+    {% if user.is_authenticated %}
+        {% csrf_token %}
+        <h2>Introduce tu comentario:</h2>
+        <form method="post" action="/aparcamientos/{{ aparcamiento.idEntidad }}">
+            <input class="comentario" value="{{ form.texto }}" name="texto"><br>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="mainLarge">
+    <h2>Autor: Miguel Ángel Lozano Montero</h2></br>
+    <h2>Funcionamiento de la práctica:</h2>
+    <h1>Recurso /:</h1>
+    <p class="about">Página principal de la práctica.En la parte principal,
+    muestra un listado de los cinco aparcamientos con más comentarios (en caso
+    de que no haya cinco parkings con comentarios, se muestran aquellos que tengan).
+    En cada aparcamiento se incluye el nombre (como enlace a su página en el
+    Ayuntamiento),la dirección y un enlace de "Más información" que apunta a la
+    URL del aparcamiento en la aplicación. Por otro lado, en el lateral se
+    ofrecen enlaces a las páginas personales disponibles y un botón que, al
+    pulsarlo, permite ver solo los aparcamientos accesibles. En caso de volver a
+    ser pulsado, vuelve a desplegar todos los aparcamientos.</p><br>
+
+    <h1>Recurso /usuario:</h1>
+    <p class="about">Página personal del usuario en cuestión. En la parte principal,
+    se muestran de cinco en cinco los aparcamientos seleccionados por el usuario,
+    donde para cada aparcamiento se muestra la misma información que en la
+    página principal. Además, para cada uno se indica la fecha en la que fue
+    seleccionado por el usuario. Adicionalmente, si hay un usuario autenticado
+    y este se encuentra en su página personal, se le ofrece en el lateral dos
+    formularios: uno para que indique sus preferencias respecto al CSS (color
+    del fondo y tamaño de la letra) y otro para que elija un título para su
+    página.</p><br>
+
+    <h1>Recurso /aparcamientos:</h1>
+    <p class="about">Página con todos los aparcamientos. Para cada uno de ellos
+    aparece el nombre y un enlace a su página. En la parte superior de la página,
+    existe un formulario que permite filtrar estos aparcamientos según
+    el distrito.</p><br>
+
+    <h1>Recurso /aparcamientos/id:</h1>
+    <p class="about">Página de un aparcamiento en la aplicación. Muestra toda la
+    información que contiene el XML del portal de datos abiertos del Ayuntamiento
+    de Madrid. Además, quedan reflejados todos los comentarios que se hayan puesto
+    para este aparcamiento. Para enviar comentarios, es necesario estar autenticado.
+    </p><br>
+
+    <h1>Recurso /usuario/xml:</h1>
+    <p class="about">Canal XML para los aparcamientos seleccionados por ese
+    usuario.</p><br>
+
+    <h1>Recurso /about:</h1>
+    <p class="about">Esta misma página.</p><br>
+
+    <p class="about">Por último, cabe destacar que en todas las páginas de la
+    aplicación podemos encontrar: el banner y la caja para hacer login/logout
+    (en la parte superior), un menú con enlaces a la página principal, a la de
+    aparcamientos y a esta (justo debajo de los elementos anteriores) y un pie
+    de página indicando de donde provienen los datos y referencias empleadas.</p>
+</div>
+{% endblock %}

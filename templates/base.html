@@ -1,0 +1,57 @@
+{% load staticfiles %}
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<html>
+<link rel="stylesheet" href="/css/style.css" type="text/css"/>
+
+<body>
+
+<div class="content">
+
+    <div id="banner"></div>
+
+    <div id="caja">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+            <p class="user">Usuario: {{ user.username }}</p><br>
+            <form class="logout" method="post" action="/logout">
+                <input type="submit" value="Logout">
+            </form>
+        {% else %}
+            <form class="login" method="post" action="/login">
+                <label for="username">Usuario: </label>
+                <input value="{{ form.id }}" name="username"><br>
+                <label for="password">Contraseña: </label>
+                <input value="{{ form.password }}" name="password" type="password"><br>
+                <input class="boton" type="submit" value="Login">
+            </form>
+        {% endif %}
+    </div>
+
+    <div id="menu">
+        {% block menu %}
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/aparcamientos">Todos</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+
+    {% block side %}
+    {% endblock %}
+
+    {% block main %}
+    {% endblock %}
+    
+    <div id="piepagina">
+	   <p>Esta aplicación utiliza datos del portal de datos abiertos de la ciudad de Madrid. | <a href="http://datos.munimadrid.es/portal/site/egob/menuitem.ac61933d6ee3c31cae77ae7784f1a5a0/?vgnextoid=00149033f2201410VgnVCM100000171f5a0aRCRD&format=xml&file=0&filename=202584-0-aparcamientos-residentes&mgmtid=e84276ac109d3410VgnVCM2000000c205a0aRCRD&preview=full">XML</a> |
+	   <a href="http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=e84276ac109d3410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default">Descripción</a>
+	   </p>
+    </div>
+
+</div>
+
+</body>
+</html>

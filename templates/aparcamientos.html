@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% csrf_token %}
+<div class="mainLarge">
+    <h2>Filtrar aparcamientos por distrito:</h2>
+    <form method="post" action="/aparcamientos">
+        <select name="opciones">
+            {% for distrito in listaDistritos %}
+                {% if distrito == "" %}
+                    <option value="">No especificado</option>
+                {% else %}
+                    <option value="{{ distrito }}">{{ distrito }}</option>
+                {% endif %}
+            {% endfor %}
+                <option value="Todos" selected>Todos</option>
+        </select>
+        <input type="submit" name="filtro" value="Filtar">
+    </form>
+    <hr />
+
+    {% if distrito == "" %}
+        <h2>Listado de los aparcamientos: (No especificado)</h2>
+    {% else %}
+        <h2>Listado de los aparcamientos: ({{ distrito }})</h2>
+    {% endif %}
+    {% for aparcamiento in aparcamientos %}
+        <h1>{{ aparcamiento.nombre }}</h1>
+        <p><a href="/aparcamientos/{{ aparcamiento.idEntidad }}">
+        Enlace para ver su página</a></p><br /><br />
+        {% if user.is_authenticated %}
+            {% if aparcamiento.id not in seleccionados %}
+                <form class="seleccion" method="post" action="/aparcamientos">
+                    <!-- Mostrar un valor diferente del que se envía con un botón: -->
+                    <!-- http://stackoverflow.com/questions/5701831/input-type-button-label-vs-value -->
+                    <button type="submit" name="marcar"
+                    value="{{ aparcamiento.idEntidad }},{{ user.username }}"
+                    >Seleccionar</button>
+                </form>
+            {% else %}
+                <form class="seleccion" method="post" action="/aparcamientos">
+                    <button type="submit" name="desmarcar"
+                    value="{{ aparcamiento.idEntidad }},{{ user.username }}"
+                    >Dejar de seleccionar</button>
+                </form>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
