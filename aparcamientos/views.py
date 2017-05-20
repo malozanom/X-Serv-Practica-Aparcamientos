@@ -332,3 +332,10 @@ def about(request):
     contexto = RequestContext(request)
 
     return HttpResponse(plantilla.render(contexto))
+
+
+def videos(request):
+    plantilla = get_template('videos.html')
+    contexto = RequestContext(request)
+
+    return HttpResponse(plantilla.render(contexto))
