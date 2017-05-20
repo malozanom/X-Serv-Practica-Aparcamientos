@@ -117,6 +117,10 @@ input.cargar {  /* Ajusta el botón de "Cargar aparcamientos" */
     margin-top: 2%;
 }
 
+video {     /* Ajusta la posición de los vídeos */
+    margin-left: 9.5%;
+}
+
 input.submit {
     background: none repeat scroll 0 0 #FEC3A5;
     border: medium none;
