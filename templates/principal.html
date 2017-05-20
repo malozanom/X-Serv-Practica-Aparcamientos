@@ -6,7 +6,7 @@
     <ul>
         <li><a href="/aparcamientos">Todos</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/videos">Videos</a></li>
+        <li><a href="/videos">Vídeos</a></li>
     </ul>
 {% endblock %}
 
@@ -17,11 +17,11 @@
         <h2>Páginas personales</h2>
         {% for usuario in listaUsuarios %}
             {% if usuario.titulo != "" %}
-                <img src="{%static "images/li.gif" %}" alt="list"/>
+                <img src="{% static "images/li.gif" %}" alt="list"/>
                 <a href="/{{ usuario.usuario }}">"{{ usuario.titulo }}"</a> --
                 {{ usuario.usuario }}<br />
             {% else %}
-                <img src="{%static "images/li.gif" %}" alt="list"/>
+                <img src="{% static "images/li.gif" %}" alt="list"/>
                 <a href="/{{ usuario.usuario }}">"Página de {{ usuario.usuario }}"</a>
                 -- {{ usuario.usuario }}<br />
             {% endif %}
@@ -59,7 +59,7 @@
                 </a></h1><p>{{ comentado.claseVial }} {{ comentado.nombreVia }},
                 {{ comentado.num}} {{ comentado.orientacion}}
                 {{ comentado.codigoPostal }} {{ comentado.localidad}}</p>
-                <p class="date"><img src="{%static "images/more.gif" %}" alt="more"/>
+                <p class="date"><img src="{% static "images/more.gif" %}" alt="more"/>
                 <a href="/aparcamientos/{{ comentado.idEntidad }}">Más información
                 </a></p><br />
             {% endif %}
