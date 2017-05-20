@@ -43,9 +43,9 @@
         <p>{{ seleccionado.aparcamiento.claseVial }} {{ seleccionado.aparcamiento.nombreVia }},
         {{ seleccionado.aparcamiento.num}} {{ seleccionado.aparcamiento.orientacion}}
         {{ seleccionado.aparcamiento.codigoPostal }} {{ seleccionado.aparcamiento.localidad}}</p>
-        <p class="date"><img src="{% static "images/more.gif" %}" alt="more"/>
+        <p class="date"><img src="{% static 'images/more.gif' %}" alt="more"/>
         <a href="/aparcamientos/{{ seleccionado.aparcamiento.idEntidad }}">Más información</a></p>
-        <p><img src="{% static "images/timeicon.gif" %}" alt="time"/>
+        <p><img src="{% static 'images/timeicon.gif' %}" alt="time"/>
         Seleccionado en: {{ seleccionado.fechaHora}}</p>
         <br /><br />
         <!-- Saber en qué pasada del bucle estamos: -->
