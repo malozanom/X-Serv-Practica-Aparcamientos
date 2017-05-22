@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^(.*)/xml/?$', views.xml, name='Canal XML'),
     url(r'^about/?$', views.about, name='Muestra la pág about'),
     url(r'^videos/?$', views.videos, name='Muestra la pág con videos'),
+    url(r'^mapa/?$', views.mapa, name='Muestra la pág con el mapa'),
     url(r'(.*)', views.pagUsuario, name='Muestra la pág personal del usuario'),
 ]
