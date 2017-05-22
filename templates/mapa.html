@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+<!-- El mapa ha sido creado usando una librería open-source y de JavaScript llamada Leaflet: -->
+<!-- http://leafletjs.com/ -->
+
+<!-- El mapa ha sido creado siguiendo los siguientes ejemplos: -->
+<!-- https://asmaloney.com/2014/01/code/creating-an-interactive-map-with-leaflet-and-openstreetmap/ -->
+<!-- https://asmaloney.com/2015/06/code/clustering-markers-on-leaflet-maps/ -->
+
+
+{% block main %}
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
+
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+<script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js'></script>
+<script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js'></script>
+
+<h2>Mapa con la ubicación de los aparcamientos:</h2>
+
+<div id="map" style="height: 450px; border: 1px solid #AAA;"></div>
+
+<script type='text/javascript' src='/templates/maps/markers.json'></script>
+<script type='text/javascript' src='/templates/maps/map.js'></script>
+{% endblock %}

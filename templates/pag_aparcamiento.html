@@ -29,12 +29,12 @@
     {% endif %}
     <b>COORDENADA X:</b> {{ aparcamiento.coordenadaX }}<br>
     <b>COORDENADA Y:</b> {{ aparcamiento.coordenadaY }}<br>
-    {% if aparcamiento.latitud == "" %}
+    {% if aparcamiento.latitud == "" or aparcamiento.latitud == None %}
         <b>LATITUD:</b> No disponible<br>
     {% else %}
         <b>LATITUD:</b> {{ aparcamiento.latitud }}<br>
     {% endif %}
-    {% if aparcamiento.longitud == "" %}
+    {% if aparcamiento.longitud == "" or aparcamiento.longitud == None %}
         <b>LONGITUD:</b> No disponible<br>
     {% else %}
         <b>LONGITUD:</b> {{ aparcamiento.longitud }}<br>
