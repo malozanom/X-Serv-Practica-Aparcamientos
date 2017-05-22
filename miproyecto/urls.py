@@ -29,7 +29,8 @@ urlpatterns = [
         name='Muestra la pág del aparcamiento en cuestión'),
     url(r'^(.*)/xml/?$', views.xml, name='Canal XML'),
     url(r'^about/?$', views.about, name='Muestra la pág about'),
-    url(r'^videos/?$', views.videos, name='Muestra la pág con videos'),
+    url(r'^videos/?$', views.videos, name='Muestra la pág con los videos'),
     url(r'^mapa/?$', views.mapa, name='Muestra la pág con el mapa'),
+    url(r'^rss/?$', views.rss, name='Canal RSS para los comentarios'),
     url(r'(.*)', views.pagUsuario, name='Muestra la pág personal del usuario'),
 ]
