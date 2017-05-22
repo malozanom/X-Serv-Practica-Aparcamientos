@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import xml.etree.ElementTree as ET
 from urllib.request import urlopen
+import json
 
 
 # Create your views here.
@@ -336,6 +337,37 @@ def about(request):
 
 def videos(request):
     plantilla = get_template('videos.html')
+    contexto = RequestContext(request)
+
+    return HttpResponse(plantilla.render(contexto))
+
+
+def mapa(request):
+    aparcamientos = Aparcamiento.objects.all()
+
+    # Crear una lista de diccionarios:
+    # https://stackoverflow.com/questions/2397754/how-can-i-create-an-array-list-of-dictionaries-in-python
+    markers = []
+    for aparcamiento in aparcamientos:
+        if (aparcamiento.latitud is not None and
+           aparcamiento.longitud is not None):
+            markers.append({'name': aparcamiento.nombre,
+                            'url': "/aparcamientos/" +
+                            str(aparcamiento.idEntidad),
+                            'lat': aparcamiento.latitud,
+                            'lng': aparcamiento.longitud})
+
+    # Guardar información en JSON en un archivo:
+    # https://stackoverflow.com/questions/12309269/how-do-i-write-json-data-to-a-file-in-python
+    # https://stackoverflow.com/questions/17055117/python-json-dump-append-to-txt-with-each-variable-on-new-line
+
+    # Guardar texto en UTF-8 con json.dump:
+    # https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
+    with open('templates/maps/markers.json', 'w', encoding='utf8') as outfile:
+        outfile.write('markers = ')
+        json.dump(markers, outfile, indent=2, ensure_ascii=False)
+
+    plantilla = get_template('mapa.html')
     contexto = RequestContext(request)
 
     return HttpResponse(plantilla.render(contexto))
