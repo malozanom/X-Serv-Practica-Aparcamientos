@@ -371,3 +371,12 @@ def mapa(request):
     contexto = RequestContext(request)
 
     return HttpResponse(plantilla.render(contexto))
+
+
+def rss(request):
+    plantilla = get_template('rss/canal_comentarios.rss')
+    comentarios = Comentario.objects.all()
+    contexto = RequestContext(request, {'comentarios': comentarios})
+
+    return HttpResponse(plantilla.render(contexto),
+                        content_type="text/rss+xml")
