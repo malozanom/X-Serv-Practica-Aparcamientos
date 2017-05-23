@@ -1,4 +1,4 @@
-Nombre: Miguel Ángel Lozano Montero
+Nombre: Miguel Ángel Lozano Montero<br>
 Titulación: Grado en Ingeniería en Tecnologías de la Telecomunicación
 Nombre de la cuenta en el laboratorio: lozano
 Nombre de usuario en GitHub: malozanom
