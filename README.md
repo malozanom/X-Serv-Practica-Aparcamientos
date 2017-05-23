@@ -5,7 +5,7 @@
 <b>Resumen de peculiaridades de la parte obligatoria:</b> Ninguno<br>
 <b>Funcionalidades opcionales implementadas:</b><br>
     - Inclusión de un favicon.<br>
-    - Uso de HTML5 (empleo del elemento multimedia <video> para incrustar los vídeos<br>
+    - Uso de HTML5 (empleo del elemento multimedia "<video>" para incrustar los vídeos<br>
       explicativos en la misma aplicación).<br>
     - Uso de JavaScript (para insertar el mapa con la ubicación de los aparcamientos).<br>
     - Uso de JSON (la información del listado de aparcamientos que utiliza el código<br>
