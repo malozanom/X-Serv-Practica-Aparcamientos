@@ -11,5 +11,5 @@
     - Uso de JSON (la información del listado de aparcamientos que utiliza el código<br>
       JavaScript está en un fichero en formato JSON).<br>
     - Generación de un canal RSS para los comentarios puestos en el sitio.<br>
-<b>URL del vı́deo demostración de la funcionalidad básica:</b> https://www.youtube.com/watch?v=NJx42ZlBU0E<br>
-<b>URL del vı́deo demostración de la funcionalidad optativa:</b> https://www.youtube.com/watch?v=V7Juqn9R9vg<br>
+<b>Vı́deo demostración de la funcionalidad básica:</b> se encuentra en `templates/videos/parte_basica.ogv`<br>
+<b>Vı́deo demostración de la funcionalidad optativa:</b> se encuentra en `templates/videos/parte_optativa.ogv`<br>
